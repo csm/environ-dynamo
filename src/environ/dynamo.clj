@@ -46,14 +46,13 @@
                  (if (= limit (:count scan-result))
                    (recur (into results (:items scan-result)))
                    (into results (:items scan-result))))))))
-     (at-at/after (or (str->int (:environ-dynamo-poll-frequency env/env)) 60000)
-                  #(poll-dynamo id) pool))))
+     (let [interval (or (str->int (:environ-dynamo-poll-interval env/env)) 60000)]
+       (when (> interval 0)
+         (at-at/after interval #(poll-dynamo id) pool))))))
 
 (defn start-polling!
   []
-  (let [pool (at-at/mk-pool)
-        id @poll-id]
-    (at-at/after 100 #(poll-dynamo id) pool)))
+  (at-at/after 100 #(poll-dynamo @poll-id) pool))
 
 (defn stop-polling!
   []

@@ -11,7 +11,7 @@ keys are used:
 
 * `:environ-dynamo-access-key` Your AWS access key.
 * `:environ-dynamo-secret-key` Your AWS secret key.
-* `:environ-dynamo-endpoit` The AWS endpoint to use (may also be used
+* `:environ-dynamo-endpoint` The AWS endpoint to use (may also be used
   to specify the AWS region).
 * `:environ-dynamo-profile` The credential profile to use, in lieu of
   access/secret keys.
