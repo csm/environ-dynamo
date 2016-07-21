@@ -1,4 +1,4 @@
-(defproject environ-dynamo "0.1.0-SNAPSHOT"
+(defproject environ-dynamo "0.1.0"
   :description "Extension to environ that polls DynamoDB"
   :url "https://github.com/csm/environ-dynamo"
   :license {:name "Eclipse Public License"
